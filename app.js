@@ -1,5 +1,13 @@
-const express=require('express');
+const dotenv=require('dotenv');
+;const express=require('express');
+const mongoose=require('mongoose');
 const app=express();
+
+dotenv.config({path:'./config.env'});
+require('./db/conn')
+const PORT=process.env.PORT;
+
+// const User= require('./model/userSchema');
 
 
 // MIDDLEWARE
@@ -21,6 +29,6 @@ app.get('/contact',(req,res)=> {
     res.send(`CONTACT`)
 });
 // console.log(`welcome`);
-app.listen(3000,()=>{
-    console.log(`PORT 3000`)
+app.listen(PORT,()=>{
+    console.log(`PORT ${PORT}`)
 });
